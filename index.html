@@ -3,274 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LTC - خدمات دیجیتال</title>
-  
-  <!-- فونت Vazirmatn -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-  
-  <!-- استایل -->
+  <title>LTC | فروشگاه خدمات دیجیتال</title>
+  <meta name="description" content="خدمات حرفه‌ای دیجیتال LTC — ادیت ویدیو و عکس، پاورپوینت، ورد و اکسل با کیفیت بالا">
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    /* استایل اضافی برای بهبود UI */
-    .hero {
-      background: linear-gradient(135deg, #007aff, #34c759);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      border-radius: 20px;
-      margin: 20px;
-      box-shadow: 0 10px 30px rgba(0,122,255,0.3);
-    }
-    
-    .hero h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
-    
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    /* بهبود دکمه‌ها */
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      background: linear-gradient(135deg, #007aff, #0056cc);
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,122,255,0.3);
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,122,255,0.4);
-    }
-    
-    .btn-secondary {
-      background: linear-gradient(135deg, #34c759, #2aa44f);
-      box-shadow: 0 4px 15px rgba(52,199,89,0.3);
-    }
-    
-    /* بهبود کارت محصولات */
-    .product-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-    
-    .product-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #f5f5f7;
-    }
-    
-    .product-content {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .product-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #1d1d1f;
-    }
-    
-    .product-price {
-      font-size: 18px;
-      font-weight: bold;
-      color: #34c759;
-      margin-bottom: 15px;
-    }
-    
-    .product-description {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
-    
-    /* اسکرول بار زیبا */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(135deg, #007aff, #34c759);
-      border-radius: 10px;
-    }
-    
-    /* موبایل */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 30px 15px;
-        margin: 10px;
-        border-radius: 15px;
-      }
-      
-      .hero h2 {
-        font-size: 24px;
-      }
-      
-      .hero p {
-        font-size: 16px;
-      }
-      
-      .btn {
-        padding: 10px 25px;
-        font-size: 14px;
-      }
-    }
-  </style>
 </head>
 <body>
 
-<!-- هدر ساده و زیبا -->
 <header class="header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <h1>LTC</h1>
-        <p>شرکت Lumen Technologies</p>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">LTC</div>
+      <div class="logo-text">
+        <strong>Lumen Technologies</strong>
+        <span>خدمات دیجیتال حرفه‌ای</span>
       </div>
-      <nav class="main-nav">
-        <a href="#products" class="nav-link">محصولات</a>
-        <a href="n.html" class="nav-link">نظرسنجی</a>
-        <a href="tel:09362335266" class="nav-link btn-call">📞 تماس</a>
-      </nav>
-    </div>
+    </a>
+    <nav class="nav">
+      <a href="#products">خدمات</a>
+      <a href="#why">چرا ما</a>
+      <a href="n.html">نظرسنجی</a>
+      <a href="tel:09362335266" class="btn-call">تماس</a>
+    </nav>
   </div>
 </header>
 
-<!-- بخش اصلی -->
-<main class="main">
-  <!-- بنر معرفی -->
+<main>
   <section class="hero">
-    <h2>خدمات حرفه‌ای دیجیتال</h2>
-    <p>طراحی، تولید محتوا، پاورپوینت، ورد، اکسل، ادیت ویدیو و طراحی سایت با بهترین کیفیت</p>
-    <a href="#products" class="btn mt-20">مشاهده خدمات ↓</a>
-  </section>
-
-  <!-- بخش محصولات -->
-  <section id="products" class="products-section">
-    <div class="container">
-      <h2 class="section-title">خدمات ما</h2>
-      <div id="product-list" class="products-grid">
-        <!-- محصولات اینجا لود می‌شوند -->
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">فروشگاه خدمات دیجیتال LTC</div>
+        <h1>طراحی، تولید محتوا و <em>خدمات دیجیتال</em> با کیفیت حرفه‌ای</h1>
+        <p>
+          ادیت ویدیو و عکس، ساخت پاورپوینت، ورد و اکسل — سریع، دقیق و متناسب با نیاز شما.
+        </p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">مشاهده خدمات</a>
+          <a href="tel:09362335266" class="btn btn-ghost">مشاوره تلفنی</a>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="stat-card"><strong>۴+</strong><span>نوع خدمت</span></div>
+        <div class="stat-card"><strong>سریع</strong><span>تحویل سفارش</span></div>
+        <div class="stat-card"><strong>۲۴/۷</strong><span>پاسخ‌گویی</span></div>
+        <div class="stat-card"><strong>کیفیت</strong><span>استاندارد حرفه‌ای</span></div>
       </div>
     </div>
   </section>
+
+  <section id="products" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>خدمات ما</h2>
+        <p>یک خدمت را انتخاب کنید و سفارش خود را ثبت کنید</p>
+      </div>
+      <div id="product-list" class="products-grid">
+        <div class="loading">
+          <div class="spinner"></div>
+          در حال بارگذاری...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>چرا LTC؟</h2>
+        <p>تمرکز روی کیفیت، سرعت و ارتباط شفاف با مشتری</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <h3>کیفیت حرفه‌ای</h3>
+          <p>خروجی تمیز و استاندارد برای ارائه، پروژه و شبکه‌های اجتماعی</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⏱</div>
+          <h3>تحویل به‌موقع</h3>
+          <p>زمان‌بندی مشخص و پیگیری تا تحویل نهایی سفارش</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>پشتیبانی مستقیم</h3>
+          <p>ارتباط مستقیم با مدیریت برای هماهنگی جزئیات</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">★</div>
+          <h3>قیمت شفاف</h3>
+          <p>قیمت پایه مشخص؛ هزینه نهایی بر اساس جزئیات سفارش</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cta">
+      <h2>آماده ثبت سفارش هستید؟</h2>
+      <p>خدمت مورد نظر را انتخاب کنید یا مستقیم با ما تماس بگیرید</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="#products" class="btn btn-primary">انتخاب خدمت</a>
+        <a href="tel:09362335266" class="btn btn-ghost">۰۹۳۶۲۳۳۵۲۶۶</a>
+      </div>
+    </div>
+  </div>
 </main>
 
-<!-- فوتر -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-info">
+    <div class="footer-grid">
+      <div>
         <h3>LTC</h3>
-        <p>تولید محتوا و خدمات دیجیتال</p>
-        <p class="contact-info">📞 مدیر: 09362335266</p>
+        <p>شرکت Lumen Technologies — تولید محتوا و خدمات دیجیتال</p>
+        <p style="margin-top:10px;color:var(--accent);font-weight:700">مدیر: ۰۹۳۶۲۳۳۵۲۶۶</p>
       </div>
       <div class="footer-links">
-        <a href="index.html" class="footer-link">صفحه اصلی</a>
-        <a href="n.html" class="footer-link">نظرسنجی</a>
+        <a href="index.html">صفحه اصلی</a>
+        <a href="#products">خدمات</a>
+        <a href="n.html">نظرسنجی</a>
+        <a href="tel:09362335266">تماس</a>
       </div>
     </div>
-    <div class="copyright">
-      <p>© کلیه حقوق برای LTC محفوظ است | ۱۴۰۴</p>
-    </div>
+    <div class="copyright">© کلیه حقوق برای LTC محفوظ است</div>
   </div>
 </footer>
 
-<!-- فقط دکمه بازگشت به بالا -->
-<button id="back-to-top" class="back-top-btn">↑</button>
-
-<!-- اسکریپت -->
+<button id="back-to-top" class="back-top" aria-label="بازگشت به بالا">↑</button>
 <script src="main.js"></script>
-
-<script>
-// اسکریپت ساده برای دکمه بازگشت به بالا
-const backToTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = 'flex';
-  } else {
-    backToTop.style.display = 'none';
-  }
-});
-
-backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// کلاس‌های کمکی
-const style = document.createElement('style');
-style.textContent = `
-  .mt-20 { margin-top: 20px; }
-  .back-top-btn {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #007aff, #0056cc);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 4px 15px rgba(0,122,255,0.3);
-    z-index: 1000;
-    transition: all 0.3s ease;
-  }
-  
-  .back-top-btn:hover {
-    transform: scale(1.1);
-  }
-  
-  @media (max-width: 768px) {
-    .back-top-btn {
-      bottom: 20px;
-      left: 20px;
-      width: 45px;
-      height: 45px;
-    }
-  }
-`;
-document.head.appendChild(style);
-</script>
-
 </body>
 </html>
