@@ -3,577 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>جزئیات محصول - LTC</title>
-  
-  <!-- فونت -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-  
-  <!-- استایل اصلی -->
+  <title>جزئیات خدمت - LTC</title>
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    /* استایل خاص صفحه محصول */
-    .product-detail-page {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      min-height: 100vh;
-      padding: 20px;
-    }
-    
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 25px;
-      background: white;
-      color: #007aff;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      margin-bottom: 30px;
-      transition: all 0.3s ease;
-    }
-    
-    .back-button:hover {
-      transform: translateX(5px);
-      background: #007aff;
-      color: white;
-    }
-    
-    .product-container {
-      background: white;
-      border-radius: 25px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .product-header {
-      background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%);
-      color: white;
-      padding: 30px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .product-title {
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0;
-    }
-    
-    .product-price-tag {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      padding: 12px 25px;
-      border-radius: 15px;
-      font-size: 24px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .product-price-tag.free {
-      background: rgba(255,149,0,0.2);
-    }
-    
-    .product-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: 40px;
-    }
-    
-    .product-image-section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    
-    .main-image {
-      width: 100%;
-      height: 350px;
-      background: linear-gradient(135deg, #f5f5f7, #e8e8ed);
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
-    
-    .main-image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-    
-    .main-image:hover img {
-      transform: scale(1.05);
-    }
-    
-    .image-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #ff9500, #ff5e3a);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    
-    .product-info-section {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-    
-    .product-description {
-      background: #f8f9fa;
-      padding: 25px;
-      border-radius: 20px;
-      border-right: 5px solid #007aff;
-    }
-    
-    .product-description h3 {
-      color: #1d1d1f;
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
-    
-    .product-description p {
-      color: #555;
-      line-height: 1.8;
-      font-size: 16px;
-    }
-    
-    .product-features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin: 20px 0;
-    }
-    
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 15px;
-      background: #f8f9fa;
-      border-radius: 12px;
-      color: #555;
-    }
-    
-    .feature-item svg {
-      color: #007aff;
-      width: 20px;
-      height: 20px;
-    }
-    
-    /* بخش سفارش */
-    .order-section {
-      background: #f8f9fa;
-      border-radius: 20px;
-      padding: 30px;
-      margin-top: 20px;
-    }
-    
-    .order-section h3 {
-      color: #1d1d1f;
-      margin-bottom: 25px;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .order-form {
-      display: grid;
-      gap: 20px;
-    }
-    
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .form-group label {
-      color: #555;
-      font-weight: 600;
-      font-size: 15px;
-    }
-    
-    .form-control {
-      padding: 15px 20px;
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
-      font-family: inherit;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      background: white;
-    }
-    
-    .form-control:focus {
-      border-color: #007aff;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0,122,255,0.1);
-    }
-    
-    .submit-btn {
-      background: linear-gradient(135deg, #34c759, #2aa44f);
-      color: white;
-      border: none;
-      padding: 18px;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 20px;
-      box-shadow: 0 6px 20px rgba(52,199,89,0.2);
-    }
-    
-    .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(52,199,89,0.3);
-    }
-    
-    .submit-btn:active {
-      transform: translateY(-1px);
-    }
-    
-    .contact-options {
-      display: flex;
-      gap: 15px;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-    
-    .contact-btn {
-      flex: 1;
-      min-width: 150px;
-      padding: 15px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      text-align: center;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    .contact-btn.call {
-      background: linear-gradient(135deg, #007aff, #0056cc);
-      color: white;
-      box-shadow: 0 4px 15px rgba(0,122,255,0.2);
-    }
-    
-    .contact-btn:hover {
-      transform: translateY(-3px);
-    }
-    
-    /* موبایل */
-    @media (max-width: 768px) {
-      .product-header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        padding: 25px 20px;
-      }
-      
-      .product-content {
-        grid-template-columns: 1fr;
-        padding: 25px;
-        gap: 30px;
-      }
-      
-      .main-image {
-        height: 250px;
-      }
-      
-      .product-features {
-        grid-template-columns: 1fr;
-      }
-      
-      .order-section {
-        padding: 25px 20px;
-      }
-      
-      .contact-options {
-        flex-direction: column;
-      }
-      
-      .contact-btn {
-        width: 100%;
-      }
-    }
-    
-    /* موبایل کوچک */
-    @media (max-width: 480px) {
-      .product-title {
-        font-size: 26px;
-      }
-      
-      .product-price-tag {
-        font-size: 20px;
-      }
-      
-      .main-image {
-        height: 200px;
-        padding: 20px;
-      }
-      
-      .product-description {
-        padding: 20px;
-      }
-    }
-  </style>
 </head>
-<body class="product-detail-page">
+<body>
 
-<div class="container">
-  <!-- دکمه بازگشت -->
-  <a href="index.html" class="back-button">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M19 12H5M12 19l-7-7 7-7"/>
-    </svg>
-    بازگشت به محصولات
-  </a>
-  
-  <!-- محصول -->
-  <div id="product-detail" class="product-container">
-    <!-- محتوا با JS پر می‌شود -->
-  </div>
-</div>
-
-<!-- اسکریپت -->
-<script>
-document.addEventListener('DOMContentLoaded', async function() {
-  const productId = new URLSearchParams(window.location.search).get('id');
-  const productDetail = document.getElementById('product-detail');
-  
-  if (!productId) {
-    productDetail.innerHTML = `
-      <div style="text-align: center; padding: 60px; color: #ff3b30;">
-        <h3>محصولی یافت نشد!</h3>
-        <p>لطفاً از طریق صفحه اصلی محصولات را مشاهده کنید.</p>
-        <a href="index.html" class="btn-details" style="margin-top: 20px; display: inline-block;">
-          بازگشت به صفحه اصلی
-        </a>
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">LTC</div>
+      <div class="logo-text">
+        <strong>Lumen Technologies</strong>
+        <span>خدمات دیجیتال حرفه‌ای</span>
       </div>
-    `;
+    </a>
+    <nav class="nav">
+      <a href="index.html#products">خدمات</a>
+      <a href="tel:09362335266" class="btn-call">تماس</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-product">
+  <div class="container">
+    <a href="index.html" class="back-link">→ بازگشت به خدمات</a>
+    <div id="product-detail">
+      <div class="loading"><div class="spinner"></div>در حال بارگذاری...</div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="copyright">© LTC — مدیریت: ۰۹۳۶۲۳۳۵۲۶۶</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var productId = new URLSearchParams(window.location.search).get('id');
+  var box = document.getElementById('product-detail');
+
+  function formatPrice(price) {
+    if (price === '0' || price === 0) return 'رایگان';
+    return Number(price).toLocaleString('fa-IR') + ' تومان';
+  }
+
+  function escapeHTML(str) {
+    var d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  if (!productId) {
+    box.innerHTML = '<div class="loading"><p>خدمتی یافت نشد</p><a class="btn btn-primary" href="index.html" style="margin-top:12px;display:inline-flex">بازگشت</a></div>';
     return;
   }
-  
-  try {
-    // لودینگ
-    productDetail.innerHTML = `
-      <div style="display: flex; justify-content: center; align-items: center; min-height: 400px;">
-        <div style="width: 50px; height: 50px; border: 4px solid #f3f3f3; border-top: 4px solid #007aff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-      </div>
-    `;
-    
-    const response = await fetch('products.json');
-    const products = await response.json();
-    const product = products.find(p => p.id == productId);
-    
-    if (!product) throw new Error('محصول یافت نشد');
-    
-    // نمایش محصول
-    renderProduct(product);
-    
-  } catch (error) {
-    console.error('خطا:', error);
-    productDetail.innerHTML = `
-      <div style="text-align: center; padding: 60px; color: #ff3b30;">
-        <h3>خطا در بارگذاری محصول!</h3>
-        <p>${error.message}</p>
-        <a href="index.html" class="btn-details" style="margin-top: 20px; display: inline-block;">
-          بازگشت به صفحه اصلی
-        </a>
-      </div>
-    `;
-  }
-});
 
-function renderProduct(product) {
-  const productDetail = document.getElementById('product-detail');
-  
-  const isFree = product.price === "0" || product.price === 0;
-  const priceText = isFree ? 'رایگان' : `${parseInt(product.price).toLocaleString('fa-IR')} تومان`;
-  const priceClass = isFree ? 'free' : '';
-  
-  const features = product.details.split('.').filter(f => f.trim()).slice(0, 4);
-  
-  const productHTML = `
-    <!-- هدر محصول -->
-    <div class="product-header">
-      <h1 class="product-title">${product.name}</h1>
-      <div class="product-price-tag ${priceClass}">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 1v22M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/>
-        </svg>
-        ${priceText}
-      </div>
-    </div>
-    
-    <!-- محتوای اصلی -->
-    <div class="product-content">
-      <!-- بخش تصویر -->
-      <div class="product-image-section">
-        <div class="main-image" style="position: relative;">
-          ${product.id === 1 ? '<span class="image-badge">پیشنهاد ویژه</span>' : ''}
-          <img src="${product.image}" alt="${product.name}" 
-               onerror="this.src='https://via.placeholder.com/500x350/007aff/ffffff?text=DNI+CO'">
-        </div>
-        
-        <div class="product-features">
-          ${features.map(feature => `
-            <div class="feature-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              ${feature.trim()}
-            </div>
-          `).join('')}
-        </div>
-      </div>
-      
-      <!-- بخش اطلاعات و سفارش -->
-      <div class="product-info-section">
-        <div class="product-description">
-          <h3>توضیحات کامل</h3>
-          <p>${product.details}</p>
-        </div>
-        
-        <div class="order-section">
-          <h3>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"></path>
-            </svg>
-            ثبت سفارش
-          </h3>
-          
-          <form id="order-form" class="order-form">
-            <div class="form-group">
-              <label for="name">نام و نام خانوادگی *</label>
-              <input type="text" id="name" name="name" class="form-control" required 
-                     placeholder="مثال: محمد حسین مهدوی">
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">شماره تماس *</label>
-              <input type="tel" id="phone" name="phone" class="form-control" required 
-                     placeholder="مثال: ۰۹۳۶۲۳۳۵۲۶۶">
-            </div>
-            
-            <div class="form-group">
-              <label for="details">جزئیات سفارش</label>
-              <textarea id="details" name="details" class="form-control" rows="4"
-                        placeholder="مشخصات دقیق سفارش خود را اینجا بنویسید..."></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
-              </svg>
-              ثبت نهایی سفارش
-            </button>
-          </form>
-          
-          <div class="contact-options">
-            <a href="tel:09362335266" class="contact-btn call">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              تماس تلفنی
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  
-  productDetail.innerHTML = productHTML;
-  
-  // مدیریت فرم
-  const orderForm = document.getElementById('order-form');
-  if (orderForm) {
-    orderForm.addEventListener('submit', function(e) {
+  fetch('products.json')
+    .then(function (r) { return r.json(); })
+    .then(function (products) {
+      var product = products.find(function (p) { return String(p.id) === String(productId); });
+      if (!product) throw new Error('not found');
+      document.title = product.name + ' | LTC';
+      render(product);
+    })
+    .catch(function () {
+      box.innerHTML = '<div class="loading"><p>خطا در بارگذاری</p><a class="btn btn-primary" href="index.html" style="margin-top:12px;display:inline-flex">بازگشت</a></div>';
+    });
+
+  function render(product) {
+    box.innerHTML =
+      '<div class="detail-card">' +
+        '<div class="detail-top">' +
+          '<h1>' + escapeHTML(product.name) + '</h1>' +
+          '<div class="price-pill">از ' + formatPrice(product.price) + '</div>' +
+        '</div>' +
+        '<div class="detail-body">' +
+          '<div class="detail-image">' +
+            '<img src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.name) + '" onerror="this.style.opacity=0.3">' +
+          '</div>' +
+          '<div class="detail-info">' +
+            '<h3>توضیحات</h3>' +
+            '<p>' + escapeHTML(product.details) + '</p>' +
+            '<div class="order-box">' +
+              '<h3>ثبت سفارش</h3>' +
+              '<form id="order-form">' +
+                '<div class="form-group"><label for="name">نام و نام خانوادگی *</label>' +
+                '<input class="form-control" id="name" name="name" required placeholder="نام کامل شما"></div>' +
+                '<div class="form-group"><label for="phone">شماره تماس *</label>' +
+                '<input class="form-control" id="phone" name="phone" type="tel" required placeholder="09xxxxxxxxx"></div>' +
+                '<div class="form-group"><label for="details">جزئیات سفارش</label>' +
+                '<textarea class="form-control" id="details" name="details" placeholder="توضیح نیاز و جزئیات پروژه..."></textarea></div>' +
+                '<button type="submit" class="btn-submit" id="submit-btn">ثبت نهایی سفارش</button>' +
+              '</form>' +
+              '<div class="contact-row">' +
+                '<a href="tel:09362335266">تماس تلفنی</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    var form = document.getElementById('order-form');
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      
-      // نمایش لودینگ
-      const submitBtn = this.querySelector('.submit-btn');
-      const originalHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML = `
-        <div style="display: inline-block; width: 20px; height: 20px; border: 2px solid white; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-        در حال ارسال...
-      `;
-      submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        const formData = new FormData(orderForm);
-        const name = formData.get('name');
-        const phone = formData.get('phone');
-        const details = formData.get('details') || 'بدون توضیح';
-        
-        // ایجاد پیام سفارش
-        const message = `📦 سفارش جدید\nمحصول: ${product.name}\nمشتری: ${name}\nتماس: ${phone}\nجزئیات: ${details}`;
-        
-        // ارسال به تلگرام با iframe (مطمئن‌ترین روش)
-        const token = 'bot425913:7d5eec5b-c6c8-4bd9-9500-95e1d5a3bde4';
-        const chat_id = 10977332;
-        const url = `https://eitaayar.ir/api/${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
-        
-        console.log('ارسال سفارش به:', url);
-        
-        // روش iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = url;
-        document.body.appendChild(iframe);
-        
-        // بعد از ارسال
-        setTimeout(() => {
-          document.body.removeChild(iframe);
-          alert('✅ سفارش شما با موفقیت ثبت شد!\n\nبه زودی با شما تماس می‌گیریم.');
-          orderForm.reset();
-          
-          // بازگشت دکمه
-          submitBtn.innerHTML = originalHTML;
-          submitBtn.disabled = false;
-        }, 1500);
-        
-      }, 500);
+      var btn = document.getElementById('submit-btn');
+      var name = document.getElementById('name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var details = document.getElementById('details').value.trim() || 'بدون توضیح';
+      btn.disabled = true;
+      btn.textContent = 'در حال ارسال...';
+
+      var message = '📦 سفارش جدید\nمحصول: ' + product.name + '\nمشتری: ' + name + '\nتماس: ' + phone + '\nجزئیات: ' + details;
+      var token = 'bot425913:7d5eec5b-c6c8-4bd9-9500-95e1d5a3bde4';
+      var chat_id = 10977332;
+      var url = 'https://eitaayar.ir/api/' + token + '/sendMessage?chat_id=' + chat_id + '&text=' + encodeURIComponent(message);
+
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = url;
+      document.body.appendChild(iframe);
+
+      setTimeout(function () {
+        try { document.body.removeChild(iframe); } catch (err) {}
+        alert('✅ سفارش شما ثبت شد.\nبه‌زودی با شما تماس می‌گیریم.');
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = 'ثبت نهایی سفارش';
+      }, 1500);
     });
   }
-}
-
-// استایل برای اسپینر
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-document.head.appendChild(style);
+});
 </script>
-
 </body>
 </html>
